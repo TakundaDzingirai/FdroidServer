@@ -1,0 +1,14 @@
+{
+  "name": "fdroid-rating-backend",
+  "version": "1.0.0",
+  "description": "Backend for handling F-Droid app ratings",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "sqlite3": "^5.0.2",
+    "body-parser": "^1.19.0"
+  }
+}
