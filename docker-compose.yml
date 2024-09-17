@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  fdroid:
+    build: .
+    container_name: fdroid-server
+    ports:
+      - "3005:80"
+      - "8443:443"
+    volumes:
+      - ./repo:/var/www/html/repo
+    environment:
+      - FDROID_KEYSTORE=/signing-key.asc
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    container_name: fdroid-backend
+    ports:
+      - "3007:3007"
+    volumes:
+      - ./backend/db:/app/db  # Persist the SQLite database
+    restart: unless-stopped
+
